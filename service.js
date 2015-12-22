@@ -10,7 +10,7 @@ module.exports = function (dao) {
                 },
 
                 sayYo: function (req, res) {
-                        res.send("yo yo yo");
+                        res.send("yo yo yo snap is so damn good on production!");
                 },
 
                 getAllBooks: function (req, res) {
