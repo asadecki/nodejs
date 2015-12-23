@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = process.env.MONGOLAB_URI || 'mongodb://heroku_xgdwp6ms:bi2gegu00ldl0r2bjp1stseegg@ds033285.mongolab.com:33285/heroku_xgdwp6ms';
+var url = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/bookinventory';
 var connection = MongoClient.connect(url);
 
 var insert = function (isbn, count) {
