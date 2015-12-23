@@ -29,7 +29,7 @@ module.exports = function (dao) {
                         });
                 }
 
-                if (req.accepts('html')) {
+                if (req.accepts('text/html')) {
                         dao.findByIsbn(req.params.isbn).then(function (result) {
                                 console.log("siema html" + result[0].count);
                                 res.send("<div> Hello baby: " + result[0].count + "</div>");
