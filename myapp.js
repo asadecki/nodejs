@@ -22,10 +22,20 @@ module.exports = function (dao) {
         app.get('/books', logRequest, service.getAllBooks);
 
         app.get('/book/:isbn', logRequest, function (req, res) {
-                dao.findByIsbn(req.params.isbn).then(function (result) {
-                        console.log("siema" + result[0].count);
-                        res.send({count: result[0].count});
-                });
+                if (res.accepts('json')) {
+                        dao.findByIsbn(req.params.isbn).then(function (result) {
+                                console.log("siema json" + result[0].count);
+                                res.send({count: result[0].count});
+                        });
+                }
+
+                if (res.accepts('html')) {
+                        dao.findByIsbn(req.params.isbn).then(function (result) {
+                                console.log("siema html" + result[0].count);
+                                res.send("<div> Hello baby: " + result[0].count + "</div>");
+                        });
+                }
+
 
         });
 
